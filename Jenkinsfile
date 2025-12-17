@@ -54,7 +54,7 @@ pipeline {
                         def secretJson = sh(
                             script: '''
                             aws secretsmanager get-secret-value \
-                             --secret-id dockerhub/credentials \
+                             --secret-id my_dockerhub_cred \
                              --query SecretString \
                              --output text
                             ''',
