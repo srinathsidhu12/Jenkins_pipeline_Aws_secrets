@@ -83,8 +83,7 @@ pipeline {
                        """
                   }
               } 
-           }
-       }
+        }
         stage('Deploy Container') {
             steps {
                 sh '''
