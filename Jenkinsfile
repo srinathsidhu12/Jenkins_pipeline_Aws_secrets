@@ -73,13 +73,12 @@ pipeline {
                             returnStdout: true
                         ).trim()
 
-
-
-                        // Login to DockerHub securely
-                        // Password is passed via STDIN (not visible in logs)
-                        // This avoids exposing credentials in Jenkins console output
+                        //// 🔐 Disable command echoing BEFORE using secrets
                         sh """
-                          echo "${dockerPass}" | docker login \
+                         set +x
+                         # Login to DockerHub securely
+                         
+                         echo "${dockerPass}" | docker login \
                              -u "${dockerUser}" \
                              --password-stdin
 
